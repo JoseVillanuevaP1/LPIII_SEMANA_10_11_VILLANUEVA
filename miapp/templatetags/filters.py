@@ -1,4 +1,4 @@
-from django import template # type: ignore
+from django import template, templatetags
 
 
 register = template.Library()
