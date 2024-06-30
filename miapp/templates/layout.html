@@ -1,62 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <title>
-        {% block title %}
+      {% block title %}
 
-
-        {% endblock %}
-        | Flor Cerdán
+      {% endblock %}| Flor Cerdán
     </title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div id="logotipo">
-            <img src="{% static 'images/LogoDJango.png' %}" />
-            <h1>Proyecto Web (LP3)</h1>
-        </div>
+      <div id="logotipo">
+        <img src="{% static 'images/LogoDJango.png' %}" />
+        <h1>Proyecto Web (LP3)</h1>
+      </div>
     </header>
 
-
     <nav>
-        <ul>
-            <li>
-                <a href="/inicio"> Inicio</a>
-            </li>
-            <li>
-                <a href="/saludo"> Mensaje de Saludo</a>
-            </li>
-            <li>
-                <a href="/rango"> Mostrar Números [a,b]</a>
-            </li>
-            <li>
-                <a href="/rango2/10/15"> Mostrar Números [10,15]</a>
-            </li>
-        </ul>
+      <ul>
+        <li>
+          <a href="{% url 'inicio' %}">Inicio</a>
+        </li>
+        <li>
+          <a href="{% url 'saludo' %}">Mensaje de Saludo</a>
+        </li>
+        <li>
+          <a href="{% url 'rango' %}">Mostrar Números [a,b]</a>
+        </li>
+        <li>
+          <a href="{% url 'rango2' %}">Mostrar Números [10,15]</a>
+        </li>
+      </ul>
     </nav>
 
     <div class="barra">
-        <span class="esquina-izquierda"></span>
-        <span class="relleno-barra"></span>
-        <span class="esquina-derecha"></span>
+      <span class="esquina-izquierda"></span>
+      <span class="relleno-barra"></span>
+      <span class="esquina-derecha"></span>
     </div>
-
 
     <div id="content">
-        <div class="box">
-            {% block content %}
-            <strong> Contenido en layout (Padre) </strong>
-            {% endblock %}
-        </div>
+      <div class="box">
+        {% block content %}
+          <strong>Contenido en layout (Padre)</strong>
+        {% endblock %}
+      </div>
     </div>
     <footer>
-        UNTELS - Lenguaje de Programación III &copy; Flor Cerdán
+      UNTELS - Lenguaje de Programación III &copy; Flor Cerdán -{% now 'd/m/Y h:m:s' %}
     </footer>
-</body>
-
+  </body>
 </html>
